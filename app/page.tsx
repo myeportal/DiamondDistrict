@@ -137,6 +137,19 @@ export default function DiamondDistrictShoppingMall() {
               <div className="hidden md:flex items-center gap-x-8 text-sm font-medium uppercase tracking-wider text-[#4a7043]">
                 <a href="#mall" className="hover:text-black">SHOP ALL DIAMONDS</a>
                 <a href="#education" className="hover:text-black">4Cs EDUCATION</a>
+          <div className="max-w-4xl mx-auto px-8 mt-8">
+            <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl bg-black">
+              <iframe 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/lWA2pjMjpBs" 
+                title="Diamonds by Rihanna - Diamond District Story" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
                 <a href="#sustainability" className="hover:text-black">SUSTAINABILITY</a>
                 <a href="#about" className="hover:text-black">OUR STORY</a>
               </div>
