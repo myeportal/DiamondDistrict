@@ -273,7 +273,7 @@ export default function DiamondDistrictShoppingMall() {
               {filteredProducts.map((product) => (
                 <div key={product.id} className="bg-white rounded-3xl overflow-hidden border border-transparent hover:border-[#c5a05e] group cursor-pointer flex flex-col h-full" onClick={() => alert(`Product Detail Modal for ${product.name}\n\n${product.description}\n\nIndustry Leading Specs: ${product.specs}\nPrice: $`)}>
                   <div className="relative flex-shrink-0">
-                    <Image 
+                    <Image unoptimized={true} 
                       src={product.image} 
                       alt={product.name} 
                       width={400} 
