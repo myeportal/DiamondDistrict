@@ -156,7 +156,7 @@ export default function DiamondDistrictShoppingMall() {
       <header className="bg-gradient-to-br from-[#4a7043] to-[#2c2c2c] text-white py-20">
         <div className="max-w-5xl mx-auto px-8 text-center">
           <div className="inline-flex bg-white/10 px-8 py-3 rounded-3xl text-sm mb-8 tracking-widest">GIA CERTIFIED • CONFLICT FREE • FULLY TRACEABLE</div>
-          <h1 className="text-6xl md:text-7xl logo-font tracking-tighter leading-none mb-6">The World\\'s Most Beautiful Diamonds</h1>
+          <h1 className="text-6xl md:text-7xl logo-font tracking-tighter leading-none mb-6">The World's Most Beautiful Stunning Diamonds, ONLY AT DIAMOND DISTRICT!</h1>
           <p className="max-w-lg mx-auto text-lg text-white/80">Industry-leading 4Cs selection. Master craftsmanship. Ethical sourcing you can trace from mine to your finger.</p>
         </div>
 
