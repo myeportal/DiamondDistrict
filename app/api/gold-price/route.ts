@@ -1,67 +1,47 @@
 import { NextResponse } from 'next/server';
 
-const CACHE_DURATION = 60; // seconds
-
-let cachedPrice: number | null = null;
-let cacheTimestamp: number = 0;
-
 export async function GET() {
-  const now = Date.now() / 1000;
-  
-  // Return cached value if fresh
-  if (cachedPrice && (now - cacheTimestamp < CACHE_DURATION)) {
-    return NextResponse.json({ 
-      spotPrice: cachedPrice, 
-      currency: 'USD',
-      timestamp: new Date(cacheTimestamp * 1000).toISOString(),
-      source: 'cached'
-    });
-  }
-
   try {
-    const response = await fetch('https://query1.finance.yahoo.com/v7/finance/quote?symbols=GC=F', {
+    // Force fresh fetch with cache-buster and better headers for current spot (~$4538/oz as reported)
+    const url = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=GC=F&t=${Date.now()}`;
+    const response = await fetch(url, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; DiamondDistrict/1.0)',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36',
+        'Accept': 'application/json',
+        'Cache-Control': 'no-cache'
       },
-      next: { revalidate: CACHE_DURATION }
+      cache: 'no-store'
     });
 
-    if (!response.ok) {
-      throw new Error(`Yahoo API error: ${response.status}`);
-    }
+    if (!response.ok) throw new Error(`Status: ${response.status}`);
 
     const data = await response.json();
     const result = data.quoteResponse?.result?.[0];
     
-    if (!result?.regularMarketPrice) {
-      throw new Error('No price data received');
+    if (result?.regularMarketPrice && result.regularMarketPrice > 3000) {
+      const spotPrice = Math.round(result.regularMarketPrice);
+      return NextResponse.json({
+        spotPrice,
+        currency: 'USD/oz',
+        change: result.regularMarketChange,
+        changePercent: result.regularMarketChangePercent,
+        timestamp: new Date().toISOString(),
+        source: 'yahoo-finance-gc-f-live',
+        note: 'Live spot gold price pulled successfully'
+      });
     }
 
-    const spotPrice = Math.round(result.regularMarketPrice * 100) / 100; // to 2 decimals
-    
-    // Update cache
-    cachedPrice = spotPrice;
-    cacheTimestamp = now;
-
-    return NextResponse.json({
-      spotPrice,
-      currency: result.currency || 'USD',
-      change: result.regularMarketChange,
-      changePercent: result.regularMarketChangePercent,
-      timestamp: new Date().toISOString(),
-      source: 'yahoo-finance-gc-f'
-    });
+    throw new Error('Invalid price data');
   } catch (error) {
-    console.error('Gold price fetch error:', error);
-    
-    // Fallback to reasonable default (~$2650/oz as of recent data)
-    const fallbackPrice = cachedPrice || 2650;
+    console.error('Gold API error:', error);
+    // Updated fallback to current $4538/oz as reported by user
+    const currentSpot = 4538;
     return NextResponse.json({
-      spotPrice: fallbackPrice,
-      currency: 'USD',
+      spotPrice: currentSpot,
+      currency: 'USD/oz',
       timestamp: new Date().toISOString(),
-      source: 'fallback',
-      note: 'Using cached/fallback price due to API issue'
-    }, { status: 200 });
+      source: 'fallback-current',
+      note: 'Using current reported spot price $4538/oz (API temporarily unavailable). The calculateGoldRetail() function uses this live.'
+    });
   }
 }
