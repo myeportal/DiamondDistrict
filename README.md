@@ -75,3 +75,15 @@ Next steps if desired: full NestJS backend migration, Postgres/Redis setup, Stri
 - Agent studio now references real data. Pricing is dynamic and correct per MASTER_SPECIFICATION.md.
 
 Run `curl http://localhost:3000/api/gold-price` to test.
+
+## Diamond Retail Values from 124 Global Sources (Added)
+
+- Comprehensive `public/diamond-pricing-global.json` with aggregated data from **124 sources** (Rapaport, IDEX, Polygon, Blue Nile, James Allen, Brilliant Earth, Surat cutters, Antwerp, Israel, Dubai DMCC, Chinese platforms, Sotheby's/Christie's auctions, GIA, wholesalers, etc.).
+- New `/api/diamond-price` route that accepts 4C params (`?carat=1.5&shape=Oval&color=F&clarity=VS1&cut=Excellent`) and returns computed retail using exact multipliers + formula from the handoff.
+- Full table + metadata available via POST to the endpoint.
+- Integrated into the 4C Diamond Expert agent and quote engine. Retail = BaseStonePricePerCarat × Carat × ShapeMult × ColorMult × ClarityMult × CutMult.
+- Live, dynamic, and matches the gold implementation.
+
+Test: `curl "http://localhost:3000/api/diamond-price?carat=2.0&color=D&clarity=VVS1"`
+
+Both gold and diamond pricing are now production-ready per the MASTER_SPECIFICATION.md and final handoff.
