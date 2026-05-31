@@ -94,14 +94,17 @@ export default function DiamondDistrict() {
         </div>
 
         <div className="max-w-4xl mx-auto mt-16 px-8">
-          <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border-8 border-white/20">
-            <iframe 
-              width="100%" 
-              height="100%" 
-            <video controls autoPlay muted className="w-full h-full">
-                <source src="/diamond-district-mine-reporter-intro.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+          <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border-8 border-white/20 bg-black">
+            <video 
+              controls 
+              autoPlay 
+              muted 
+              loop
+              className="w-full h-full object-cover"
+            >
+              <source src="/diamond-district-mine-reporter-intro.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </header>
