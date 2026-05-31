@@ -65,3 +65,13 @@ This package is now the **source of truth** per the HERMES INSTRUCTION.
 
 Next steps if desired: full NestJS backend migration, Postgres/Redis setup, Stripe full checkout, live metal pricing API integration, virtual try-on with 3D models.
 
+
+## Spot Gold Pricing Integration (Added)
+
+- Free no-key API: Yahoo Finance `GC=F` (COMEX Gold Futures = spot benchmark) via new `/api/gold-price` route (with caching, fallback, error handling).
+- Full handoff formula implemented in `calculateGoldRetail()`: `((Weight × Spot × Purity) + Labor + Findings + Stones) × Markup`.
+- Live spot price fetched in component and available to Gold Pricing Agent, product pricing, and admin.
+- Diamond multipliers can be added similarly (Rapaport-style base × shape/color/clarity/cut).
+- Agent studio now references real data. Pricing is dynamic and correct per MASTER_SPECIFICATION.md.
+
+Run `curl http://localhost:3000/api/gold-price` to test.
