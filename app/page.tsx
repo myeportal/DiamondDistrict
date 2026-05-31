@@ -165,9 +165,9 @@ export default function DiamondDistrict() {
           <div className="text-sm text-[#4a7043]">Showing {filteredProducts.length} elegant listings • Supabase ready for 1000s more</div>
         </div>
 
-        <div className="grid grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
           {filteredProducts.map((product) => (
-            <div key={product.id} className="bg-white rounded-3xl overflow-hidden border border-transparent hover:border-[#c5a05e] group cursor-pointer">
+            <div key={product.id} className="bg-white rounded-3xl overflow-hidden border border-transparent hover:border-[#c5a05e] group cursor-pointer flex flex-col">
               <div className="relative">
                 <Image 
                   src={product.image} 
@@ -177,13 +177,15 @@ export default function DiamondDistrict() {
                   className="w-full aspect-square object-cover" 
                   unoptimized={true}
                 />
-                <div className="absolute top-4 right-4 bg-white/90 text-xs px-4 py-1 rounded-3xl font-mono shadow">GIA</div>
+                <div className="absolute top-3 right-3 bg-white/90 text-[10px] px-3 py-0.5 rounded-3xl font-mono shadow text-[#4a7043]">GIA</div>
               </div>
-              <div className="p-6">
-                <div className="font-medium text-sm leading-tight line-clamp-2 group-hover:text-[#4a7043]">{product.name}</div>
-                <div className="text-xs text-[#4a7043] mt-3 line-clamp-4">{product.description}</div>
-                <div className="mt-6 text-3xl font-light">$</div>
-                <div className="text-[10px] text-emerald-600 mt-1">Traceable • Ethical • Heirloom Quality</div>
+              <div className="p-4 md:p-6 flex-1 flex flex-col">
+                <div className="font-medium text-sm leading-tight line-clamp-2 group-hover:text-[#4a7043] mb-3">{product.name}</div>
+                <div className="text-xs text-[#4a7043] flex-1 line-clamp-3 md:line-clamp-4 mb-auto">{product.description}</div>
+                <div className="mt-auto pt-4">
+                  <div className="text-3xl font-light text-[#2c2c2c]">$</div>
+                  <div className="text-[10px] leading-tight text-emerald-600 mt-1">Traceable • Ethical • Heirloom</div>
+                </div>
               </div>
             </div>
           ))}
