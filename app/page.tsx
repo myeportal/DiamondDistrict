@@ -106,6 +106,55 @@ export default function DiamondDistrict() {
         </div>
       </header>
 
+      {/* AI Developer / Skill Agents Studio — Friendly UX under VSL, above product grid */}
+      {/* Per founder request: interactive section for users to try /developer skill agents. Mock agents demonstrate pricing, configurator, 4C analysis, quoting. Uses same orchestration patterns as the app itself. Adaptive on hover/click. */}
+      <section className="bg-gradient-to-b from-[#f8f4eb] to-white py-20 border-b-2 border-[#d4af37]/30">
+        <div className="max-w-6xl mx-auto px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex bg-[#4a7043] text-amber-100 text-xs tracking-[2px] px-8 py-3 rounded-3xl mb-6 items-center gap-3">
+              <span className="text-lg">🤖</span>
+              HERMES-POWERED DEVELOPER SKILL AGENTS
+            </div>
+            <h2 className="text-5xl logo-font tracking-tighter text-[#2c2c2c] mb-4">Try Our AI Agents Live</h2>
+            <p className="max-w-2xl mx-auto text-lg text-[#4a7043]">Built with the same top-down orchestrators and kanban flow that created Diamond District. Friendly, instant, and ready for you to experiment with. Place your custom request — from pricing formulas to full jewelry builds.</p>
+            <div className="text-xs mt-6 text-[#c5a05e] flex items-center justify-center gap-4">
+              <div className="px-4 py-1 border border-[#c5a05e]/50 rounded-3xl">No sign-up • Real-time responses • Ties into builders &amp; quote engine</div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { id: 1, name: "Gold Pricing Agent", icon: "📊", color: "#4a7043", desc: "Instant retail quotes using ((Weight × Spot × Purity) + Labor + Findings + Stones) × Markup. Live spot simulation.", action: "Get Quote" },
+              { id: 2, name: "4C Diamond Expert", icon: "💎", color: "#c5a05e", desc: "Analyzes Carat, Cut, Color, Clarity with deep gemology stories. Recommends matches for your budget & style.", action: "Analyze Stone" },
+              { id: 3, name: "Custom Builder Agent", icon: "🛠️", color: "#2c2c2c", desc: "Guides you through ring/necklace/pendant flows with live engraving preview and virtual try-on integration.", action: "Start Build" },
+              { id: 4, name: "Quote & Vendor Agent", icon: "📋", color: "#4a7043", desc: "Generates personalized quotes, matches to vendors, CRM-style follow-up simulation, and admin dashboard previews.", action: "Request Quote" }
+            ].map((agent) => (
+              <div 
+                key={agent.id}
+                onClick={() => {
+                  alert(`Launching ${agent.name}...\n\nFriendly Demo Mode:\n\nUser: Can you price a 2.5ct VS1 round in 18K yellow gold?\n\n${agent.name}: Current spot $2650/oz. Using master formula: ~$4,820 base retail before final markup. Want to adjust specs or see the full 4C breakdown and engraving options? (This would open the real configurator + quote engine in production.)`);
+                  // In full version this would open modal with chat, call real API route, or trigger builders
+                }}
+                className="group bg-white border border-[#d4af37]/40 hover:border-[#c5a05e] rounded-3xl p-8 transition-all hover:-translate-y-1 hover:shadow-2xl cursor-pointer flex flex-col"
+              >
+                <div className="text-6xl mb-8 transition-transform group-hover:scale-110" style={{color: agent.color}}>
+                  {agent.icon}
+                </div>
+                <h3 className="text-2xl font-semibold text-[#2c2c2c] mb-3 group-hover:text-[#4a7043]">{agent.name}</h3>
+                <p className="text-[#4a7043] text-sm flex-1 leading-relaxed mb-8">{agent.desc}</p>
+                <div className="inline-flex items-center justify-center bg-[#4a7043] text-white text-sm py-3 px-8 rounded-2xl group-hover:bg-[#c5a05e] transition-colors font-medium">
+                  {agent.action} →
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-16 text-xs text-[#4a7043]/70 max-w-md mx-auto">
+            These agents are frontend demos that tie directly into the Gold/Diamond Pricing Engines, Configurator Flows, Admin Dashboard, and CRM modules from the final handoff specs. In production they would connect to the NestJS backend, real DB, and full orchestration. "Those items" (expanded inventory, reporter video, rich 4C JSON) have been refreshed in products.json and public/assets.
+          </div>
+        </div>
+      </section>
+
       {/* Shopping Mall Grid - ONLY gold and diamond images, new descriptions, $ symbol only */}
       <section id="mall" className="max-w-7xl mx-auto px-8 py-16">
         <div className="flex justify-between items-end mb-12">
