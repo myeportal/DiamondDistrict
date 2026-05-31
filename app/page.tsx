@@ -70,6 +70,7 @@ export default function DiamondDistrict() {
   }, []);
 
   const handleCustomBuilder = () => {
+    const walletValue = 18500; // Example customer wallet/budget value for fence line risk calc
     const buildParams = {
       type: "Custom Ring",
       metal: "18K Rose Gold",
@@ -79,7 +80,9 @@ export default function DiamondDistrict() {
       clarity: "VVS1",
       cut: "Excellent",
       engraving: "Love You Always",
-      estPrice: Math.round(spotPrice * 2.8 * 1.2 + 4500) // simple formula example
+      estPrice: Math.round(spotPrice * 2.8 * 1.2 + 4500), // simple formula example
+      walletValue,
+      fenceLineRule: "middle-of-the-road low risk <25% over wallet value"
     };
     setCurrentBuild(buildParams);
     const guarantee = "Diamond District Quality Guarantee: GIA certified, fully traceable from mine to finger, conflict-free, heirloom standard with lifetime warranty.";
@@ -88,9 +91,11 @@ export default function DiamondDistrict() {
 Bespoke pavé halo with milgrain edging and secret gallery engraving now active.
 Live gold pricing at $${spotPrice}/oz applied automatically to your specifications.
 
+Fence line configured per spec: middle-of-the-road low risk, less than 25% over wallet value (base $${walletValue}).
+
 ${guarantee}
 
-Your multi-generational heirloom piece is taking shape with full traceability and ethical sourcing.`);
+Your multi-generational heirloom piece is taking shape with full traceability, ethical sourcing, and conservative risk fence.`);
   };
 
   const handleGetCustomQuote = () => {
@@ -100,16 +105,28 @@ Your multi-generational heirloom piece is taking shape with full traceability an
     }
     const guarantee = "Diamond District Quality Guarantee: GIA certified, fully traceable from mine to finger, conflict-free, heirloom standard with lifetime warranty.";
     const paramsText = Object.entries(currentBuild).map(([k,v]) => `${k}: ${v}`).join(' | ');
+
+    // Fence line rule (per founder spec): middle-of-the-road low risk, capped at less than 25% over wallet value.
+    // Integrated into Custom Builder → Quote flow for conservative RFQ risk management.
+    const walletValue = currentBuild.walletValue || (currentBuild.estPrice * 0.8) || 15000;
+    const fenceLine = Math.round(walletValue * 1.25);
+    const riskAssessment = (currentBuild.estPrice || 0) > fenceLine 
+      ? "MEDIUM RISK - Adjust parameters downward to stay under low-risk fence line" 
+      : "LOW RISK - Compliant with middle-of-the-road fence (<25% over wallet value)";
+
     alert(`Get Custom Quote
 
 Subject: custom rfq -dd
 
 Build Parameters: ${paramsText}
 Estimated Retail: $${currentBuild.estPrice}
+Wallet Value: ~$${Math.round(walletValue)}
+Fence Line (Low Risk): $${fenceLine} (middle-of-road, <25% over wallet)
+Risk Assessment: ${riskAssessment}
 
 ${guarantee}
 
-Quote request with full parameters, live pricing from global sources, and your custom engraving sent to our master team. Formal response with complete documentation and options within 24 hours.`);
+Quote request with full parameters, live pricing from global sources, custom engraving, and conservative risk fence sent to our master team. Formal response with complete documentation and options within 24 hours.`);
   };
 
   return (
