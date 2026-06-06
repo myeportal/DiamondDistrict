@@ -884,8 +884,12 @@
         function navigateTo(section) {
             if (section === 'shop') {
                 document.getElementById('shop-section').scrollIntoView({ behavior: 'smooth' });
+            } else if (section === 'education') {
+                window.location.href = '4cs-education.html';
+            } else if (section === 'sustainability') {
+                window.location.href = 'sustainability.html';
             } else {
-                alert(`Navigating to ${section} section. In the full production site this would load dedicated rich pages with even more storytelling, testimonials, and adaptive behaviors.`);
+                window.location.href = 'index.html#' + section;
             }
         }
         
