@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4C's Education • Diamond District</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+        :root {
+            --gold: #d4af37;
+            --deep-gold: #b8972e;
+            --navy: #0f172a;
+        }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .luxury-heading { font-family: 'Playfair Display', serif; }
+        .hero-video { box-shadow: 0 25px 50px -12px rgb(212 175 55 / 0.4); }
+        .product-card { transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1); }
+        .product-card:hover { transform: scale(1.03) rotate(1deg); box-shadow: 0 30px 60px -15px rgb(212 175 55 / 0.5); }
+        .sparkle { position: absolute; animation: sparkle 1.5s infinite; }
+        @keyframes sparkle { 0%, 100% { opacity: 0.3; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.2); } }
+        .golden-ticket { animation: golden-pop 3s infinite ease-in-out; }
+        @keyframes golden-pop { 0%, 100% { transform: scale(1) rotate(-2deg); filter: drop-shadow(0 0 20px #d4af37); } 50% { transform: scale(1.08) rotate(2deg); filter: drop-shadow(0 0 40px #f0d6a0); } }
+        .c-card { transition: all 0.3s ease; }
+        .c-card:hover { transform: translateY(-8px); border-color: #d4af37; }
+    </style>
+</head>
+<body class="bg-[#0f172a] text-white">
+    <!-- Top Nav - Exact same design -->
+    <nav class="fixed top-0 left-0 right-0 bg-[#0f172a]/95 backdrop-blur-lg z-50 border-b border-[#d4af37]/30">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-x-4">
+                <a href="index.html" class="flex items-center gap-x-4 hover:opacity-80 transition">
+                    <div class="text-4xl">💎</div>
+                    <div class="luxury-heading text-3xl tracking-tighter text-[#d4af37]">Diamond District</div>
+                </a>
+            </div>
+            <div class="flex items-center gap-x-10 text-sm font-medium">
+                <a href="index.html#shop" class="hover:text-[#d4af37] transition">Shop</a>
+                <a href="index.html#story" class="hover:text-[#d4af37] transition">Our Story</a>
+                <a href="4cs-education.html" class="text-[#d4af37] font-semibold">4C's Education</a>
+                <a href="sustainability.html" class="hover:text-[#d4af37] transition">Sustainability</a>
+                <a href="index.html#golden-ticket" class="hover:text-[#d4af37] transition">Golden Ticket VIP</a>
+                <button onclick="window.location.href='index.html'" class="flex items-center gap-x-2 hover:text-[#d4af37] transition">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-24">
+        <!-- Hero -->
+        <header class="min-h-[60vh] flex items-center bg-gradient-to-br from-[#0f172a] via-[#1e2937] to-[#0f172a] relative px-8">
+            <div class="max-w-5xl mx-auto text-center">
+                <div class="inline-flex items-center gap-3 px-8 py-3 bg-white/10 backdrop-blur rounded-3xl text-xs font-mono tracking-widest border border-[#d4af37]/40 mb-8">
+                    GIA CERTIFIED KNOWLEDGE • TIMELESS STANDARDS
+                </div>
+                <h1 class="luxury-heading text-7xl md:text-8xl leading-none tracking-[-3px] text-white mb-6">The 4C's of Diamonds</h1>
+                <p class="text-2xl text-[#d4af37] max-w-2xl mx-auto">Master the universal language of diamond quality. Created by the Gemological Institute of America (GIA), the 4C's — Carat, Cut, Color, and Clarity — are your guide to choosing stones of eternal beauty and value.</p>
+            </div>
+        </header>
+
+        <!-- Rich Content - Scraped & Adapted from GIA standards -->
+        <section class="py-24 bg-white text-[#0f172a]">
+            <div class="max-w-6xl mx-auto px-8">
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-xl text-gray-600 mb-16">The 4C's provide an objective, standardized framework for evaluating diamonds. GIA's system, introduced in the 1950s, remains the global benchmark. Beauty emerges from how these characteristics interact. Always seek GIA reports for diamonds above 0.30ct.</p>
+                </div>
+
+                <!-- 4Cs Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+                    <!-- Carat -->
+                    <div class="c-card bg-gray-50 p-8 rounded-3xl border border-gray-200 hover:border-[#d4af37]">
+                        <div class="text-6xl mb-6">⚖️</div>
+                        <h3 class="luxury-heading text-4xl text-[#0f172a] mb-4">Carat</h3>
+                        <div class="text-[#d4af37] font-mono text-sm tracking-widest mb-6">WEIGHT • RARITY</div>
+                        <p class="text-gray-600 mb-6">Measures weight, not size. 1 carat = 0.2 grams (200 milligrams). Larger stones are exponentially rarer and more valuable. A well-cut 1ct stone can appear larger than a poorly cut 1.2ct.</p>
+                        <ul class="text-sm space-y-3 text-gray-500">
+                            <li class="flex items-start gap-2"><span class="text-[#d4af37] mt-1">•</span>Price jumps non-linearly with size</li>
+                            <li class="flex items-start gap-2"><span class="text-[#d4af37] mt-1">•</span>Balance with Cut for visual spread</li>
+                            <li class="flex items-start gap-2"><span class="text-[#d4af37] mt-1">•</span>GIA reports exact weight to 1/100th ct</li>
+                        </ul>
+                    </div>
+
+                    <!-- Cut -->
+                    <div class="c-card bg-gray-50 p-8 rounded-3xl border border-gray-200 hover:border-[#d4af37]">
+                        <div class="text-6xl mb-6">✨</div>
+                        <h3 class="luxury-heading text-4xl text-[#0f172a] mb-4">Cut</h3>
+                        <div class="text-[#d4af37] font-mono text-sm tracking-widest mb-6">BRILLIANCE • FIRE • SPARKLE</div>
+                        <p class="text-gray-600 mb-6">The most important C for beauty. Determines how well light is returned as brilliance, fire (colored flashes), and scintillation. GIA grades Excellent to Poor for round brilliants.</p>
+                        <ul class="text-sm space-y-3 text-gray-500">
+                            <li class="flex items-start gap-2"><span class="text-[#d4af37] mt-1">•</span>Excellent cut maximizes light performance</li>
+                            <li class="flex items-start gap-2"><span class="text-[#d4af37] mt-1">•</span>Affects perceived size and sparkle</li>
+                            <li class="flex items-start gap-2"><span class="text-[#d4af37] mt-1">•</span>Poor cut can make even flawless stones look dull</li>
+                        </ul>
+                    </div>
+
+                    <!-- Color -->
+                    <div class="c-card bg-gray-50 p-8 rounded-3xl border border-gray-200 hover:border-[#d4af37]">
+                        <div class="text-6xl mb-6">🌈</div>
+                        <h3 class="luxury-heading text-4xl text-[#0f172a] mb-4">Color</h3>
+                        <div class="text-[#d4af37] font-mono text-sm tracking-widest mb-6">D (COLORLESS) TO Z</div>
+                        <p class="text-gray-600 mb-6">Grades absence of color from D (completely colorless, rarest/most valuable) to Z (light yellow/brown). D-F are colorless; G-J near-colorless and excellent value in jewelry.</p>
+                        <ul class="text-sm space-y-3 text-gray-500">
+                            <li class="flex items-start gap-2"><span class="text-[#d4af37] mt-1">•</span>D-F: Highest value for white settings</li>
+                            <li class="flex items-start gap-2"><span class="text-[#d4af37] mt-1">•</span>H-J often eye-clean in yellow gold</li>
+                            <li class="flex items-start gap-2"><span class="text-[#d4af37] mt-1">•</span>Fancy colors graded by intensity (Vivid is rarest)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Clarity -->
+                    <div class="c-card bg-gray-50 p-8 rounded-3xl border border-gray-200 hover:border-[#d4af37]">
+                        <div class="text-6xl mb-6">🔎</div>
+                        <h3 class="luxury-heading text-4xl text-[#0f172a] mb-4">Clarity</h3>
+                        <div class="text-[#d4af37] font-mono text-sm tracking-widest mb-6">FL • IF • VVS • VS • SI • I</div>
+                        <p class="text-gray-600 mb-6">Evaluates inclusions and blemishes under 10x magnification. Most jewelry diamonds are VS or SI (eye-clean). FL/IF are extremely rare.</p>
+                        <ul class="text-sm space-y-3 text-gray-500">
+                            <li class="flex items-start gap-2"><span class="text-[#d4af37] mt-1">•</span>VS1-VS2: Minor inclusions, eye-clean</li>
+                            <li class="flex items-start gap-2"><span class="text-[#d4af37] mt-1">•</span>SI1-SI2: Often eye-clean for budget</li>
+                            <li class="flex items-start gap-2"><span class="text-[#d4af37] mt-1">•</span>Always prioritize eye-clean over grade letter</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-[#0f172a] text-white p-12 rounded-3xl mb-16">
+                    <h3 class="luxury-heading text-5xl text-[#d4af37] mb-8 text-center">How the 4C's Work Together</h3>
+                    <p class="max-w-3xl mx-auto text-center text-lg text-gray-300">Cut is king for sparkle. Balance Carat with excellent Cut. Choose Color and Clarity that are eye-clean in your setting. Request a GIA report. At Diamond District, every stone is vetted against these standards for timeless heirloom quality.</p>
+                </div>
+
+                <div class="text-center">
+                    <a href="index.html" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="inline-flex items-center gap-x-3 px-10 py-4 bg-[#d4af37] hover:bg-amber-300 text-[#0f172a] rounded-3xl font-semibold text-lg transition">
+                        ← Return to Diamond District Home
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer copied exactly -->
+    <footer class="bg-[#0f172a] py-20 text-gray-400 text-sm">
+        <div class="max-w-6xl mx-auto px-8 grid md:grid-cols-4 gap-y-12">
+            <div>
+                <div class="flex items-center gap-x-3 text-[#d4af37] text-2xl mb-6">
+                    💎 <span class="luxury-heading">Diamond District</span>
+                </div>
+                <p class="text-xs">Timeless luxury. Ethical origins. Unforgettable moments.</p>
+            </div>
+            <div>
+                <div class="font-medium text-white mb-6">Shop</div>
+                <div class="space-y-3 text-xs">
+                    <div>Diamond Rings</div>
+                    <div>Gold Jewelry</div>
+                    <div>Bridal Collections</div>
+                    <div>Golden Ticket Exclusives</div>
+                </div>
+            </div>
+            <div>
+                <div class="font-medium text-white mb-6">Learn</div>
+                <div class="space-y-3 text-xs">
+                    <a href="4cs-education.html" class="hover:text-[#d4af37]">The 4Cs</a>
+                    <div>Gold Guide</div>
+                    <div>Our Story</div>
+                    <a href="sustainability.html" class="hover:text-[#d4af37]">Sustainability</a>
+                </div>
+            </div>
+            <div>
+                <div class="font-medium text-white mb-6">Contact</div>
+                <div class="text-xs space-y-1">
+                    <div>hello@diamonddistrict.com</div>
+                    <div>New York • Los Angeles • London</div>
+                    <div class="pt-4 text-[#d4af37]">© 2026 Diamond District. All rights reserved.</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script
+        tailwind.config = {
+            content: [],
+            theme: { extend: {} }
+        };
+        // Simple cart mock for consistency
+        let cartCount = 0;
+        function updateCart() {
+            const countEl = document.getElementById('cart-count');
+            if (countEl) countEl.textContent = cartCount;
+        }
+        // Auto update if element exists
+        setTimeout(() => updateCart(), 500);
+    </script>
+</body>
+</html>
