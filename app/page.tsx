@@ -100,9 +100,7 @@ Your multi-generational heirloom piece is taking shape with full traceability, e
   };
 
   const handleGetCustomQuote = () => {
-    const subject = "custom rfq -dd";
-    const body = "Hello Diamond District Team,\n\nI'd like a custom quote for a piece with the following details:\n\n[Please describe your desired design, carat, style, engraving ideas, budget, etc.]\n\nThank you!";
-    window.location.href = `mailto:hello@diamonddistrict.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = "/contact";
   };
 
   return (
