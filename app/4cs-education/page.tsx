@@ -1,9 +1,8 @@
+'use client';
+// @ts-ignore
+import Nav from '../components/Nav';
 import Link from 'next/link';
 
-export const metadata = {
-  title: "4C's Education • Diamond District",
-  description: "Master the GIA 4Cs - Carat, Cut, Color, Clarity. In-depth guide to choosing timeless heirloom diamonds with full traceability, ethical sourcing, and lifetime quality guarantee. South Carolina's luxury standard.",
-};
 
 export default function FourCsEducation() {
   return (

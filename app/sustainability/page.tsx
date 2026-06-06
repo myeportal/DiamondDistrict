@@ -1,9 +1,8 @@
+'use client';
+// @ts-ignore
+import Nav from '../components/Nav';
 import Link from 'next/link';
 
-export const metadata = {
-  title: "Sustainability • Diamond District",
-  description: "Traceable. Responsible. Ethical. Our commitment to KP, RJC, Tracr blockchain, and responsible mining from Botswana and other high-standard origins.",
-};
 
 export default function Sustainability() {
   return (
