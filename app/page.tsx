@@ -212,7 +212,7 @@ Quote request with full parameters, live pricing from global sources, custom eng
             >
               <div className="text-5xl mb-6">🛠️</div>
               <h3 className="text-3xl font-semibold mb-3 text-[#2c2c2c]">Custom Builder</h3>
-              <p className="text-[#4a7043] flex-1">Bespoke pavé halo, secret engraving, virtual try-on simulation. Live ${spotPrice}/oz gold and 4C multipliers applied in real time.</p>
+              <p className="text-[#4a7043] flex-1">Welcome to Diamond District in Beautiful South Carolina, where we specialize in secret engraving, virtual try-on simulation (coming Soon). Live $gold prices and 4C's Beauty in real time.</p>
               <button className="mt-8 w-full bg-[#4a7043] hover:bg-[#3a5a35] text-white py-4 rounded-2xl font-medium transition-colors">
                 Start Custom Build →
               </button>
