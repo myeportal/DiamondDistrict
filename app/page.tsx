@@ -100,34 +100,9 @@ Your multi-generational heirloom piece is taking shape with full traceability, e
   };
 
   const handleGetCustomQuote = () => {
-    if (!currentBuild) {
-      alert("Please start a Custom Build first to generate parameters.");
-      return;
-    }
-    const guarantee = "Diamond District Quality Guarantee: GIA certified, fully traceable from mine to finger, conflict-free, heirloom standard with lifetime warranty.";
-    const paramsText = Object.entries(currentBuild).map(([k,v]) => `${k}: ${v}`).join(' | ');
-
-    // Fence line rule (per founder spec): middle-of-the-road low risk, capped at less than 25% over wallet value.
-    // Integrated into Custom Builder → Quote flow for conservative RFQ risk management.
-    const walletValue = currentBuild.walletValue || (currentBuild.estPrice * 0.8) || 15000;
-    const fenceLine = Math.round(walletValue * 1.25);
-    const riskAssessment = (currentBuild.estPrice || 0) > fenceLine 
-      ? "MEDIUM RISK - Adjust parameters downward to stay under low-risk fence line" 
-      : "LOW RISK - Compliant with middle-of-the-road fence (<25% over wallet value)";
-
-    alert(`Get Custom Quote
-
-Subject: custom rfq -dd
-
-Build Parameters: ${paramsText}
-Estimated Retail: $${currentBuild.estPrice}
-Wallet Value: ~$${Math.round(walletValue)}
-Fence Line (Low Risk): $${fenceLine} (middle-of-road, <25% over wallet)
-Risk Assessment: ${riskAssessment}
-
-${guarantee}
-
-Quote request with full parameters, live pricing from global sources, custom engraving, and conservative risk fence sent to our master team. Formal response with complete documentation and options within 24 hours.`);
+    const subject = "custom rfq -dd";
+    const body = "Hello Diamond District Team,\n\nI'd like a custom quote for a piece with the following details:\n\n[Please describe your desired design, carat, style, engraving ideas, budget, etc.]\n\nThank you!";
+    window.location.href = `mailto:hello@diamonddistrict.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
@@ -225,7 +200,7 @@ Quote request with full parameters, live pricing from global sources, custom eng
             >
               <div className="text-5xl mb-6">📋</div>
               <h3 className="text-3xl font-semibold mb-3 text-[#2c2c2c]">Get Custom Quote</h3>
-              <p className="text-[#4a7043] flex-1">Parameter-driven RFQ with full build specs, live pricing, and traceability report. Subject: custom rfq -dd. Team response guaranteed within 24hrs.</p>
+              <p className="text-[#4a7043] flex-1">Get Your Custom Quote Now. Call to secure the order.</p>
               <button className="mt-8 w-full bg-[#4a7043] hover:bg-[#3a5a35] text-white py-4 rounded-2xl font-medium transition-colors">
                 Get Custom Quote →
               </button>
