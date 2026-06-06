@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 import React, { useState, useEffect } from 'react';
 
@@ -143,8 +144,8 @@ Quote request with full parameters, live pricing from global sources, custom eng
               <div className="hidden md:flex items-center gap-x-9 text-sm font-medium text-[#4a7043]">
                 <a href="#agents" className="hover:text-black">AI STUDIO</a>
                 <a href="#mall" className="hover:text-black">SHOP ALL</a>
-                <a href="/4cs-education.html" className="hover:text-black">4Cs EDUCATION</a>
-                <a href="/sustainability.html" className="hover:text-black">SUSTAINABILITY</a>
+                <a href="/4cs-education" className="hover:text-black">4Cs EDUCATION</a>
+                <a href="/sustainability" className="hover:text-black">SUSTAINABILITY</a>
               </div>
             </div>
             <div className="flex items-center gap-x-8">
